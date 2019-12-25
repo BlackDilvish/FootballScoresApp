@@ -74,10 +74,15 @@
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Team.cs" />
     <Compile Include="Model\TeamStandings.cs" />
+    <Compile Include="ViewModel\Controllers\DataConverter.cs" />
     <Compile Include="ViewModel\Controllers\DataController.cs" />
+    <Compile Include="ViewModel\Controllers\Headers.cs" />
     <Compile Include="ViewModel\Switcher.cs" />
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Standings.xaml.cs">
+      <DependentUpon>Standings.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +97,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Standings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

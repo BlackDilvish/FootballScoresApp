@@ -43,7 +43,12 @@ namespace FootballScoresApp.Model
 
         public override string ToString()
         {
-            return $"{match_date} : {match_hometeam_name} vs. {match_awayteam_name} \n{lineup}\nChanges: \n{substitutions}";
+            string output = $"{match_date} : {match_hometeam_name} vs. {match_awayteam_name} \n{lineup}\nChanges: \n{substitutions}";
+
+            foreach (GoalScorer scorer in goalscorer)
+                output += $"{scorer}\n";
+
+            return output;
         }
 
     }

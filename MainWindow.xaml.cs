@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FootballScoresApp.ViewModel;
+using FootballScoresApp.ViewModel.Controllers;
 using FootballScoresApp.View;
 
 namespace FootballScoresApp
@@ -23,6 +24,7 @@ namespace FootballScoresApp
         {
             InitializeComponent();
             RestClient.InitRestClient();
+            DataConverter.InitDictionary();
 
             Switcher.pageSwitcher = this;
             Switcher.Switch(new HomePage());
