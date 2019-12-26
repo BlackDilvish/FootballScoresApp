@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FootballScoresApp.Model
 {
-    class Team
+    public class Team
     {
         public string team_key { get; set; }
         public string team_name { get; set; }
@@ -23,17 +23,7 @@ namespace FootballScoresApp.Model
 
         public override string ToString()
         {
-            string output = $"\n{team_name} : \nCoach: ";
-
-            foreach (Coach c in coaches)
-                output += c;
-
-            output += ",\nPlayers: ";
-
-            foreach (Player p in players)
-                output += $"{p}, ";
-
-            return output;
+            return team_name;
         }
     }
 }

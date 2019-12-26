@@ -49,5 +49,10 @@ namespace FootballScoresApp.View
         {
             Switcher.Switch(new Standings(), DataConverter.LeagueID("Championship"));
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new ClubInfo(), (148, 2611));
+        }
     }
 }

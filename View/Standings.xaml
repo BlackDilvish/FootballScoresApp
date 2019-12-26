@@ -21,8 +21,10 @@
             <Button x:Name="btnReturn" Content="Return" Click="btnReturn_Click"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10,0">
-        </StackPanel>
+        <ScrollViewer Grid.Row="1" Grid.Column="1" Margin="10,0">
+            <StackPanel x:Name="splLeaguesButtons" />
+        </ScrollViewer>
+
 
         <Viewbox Grid.Column="2" Grid.Row="1">
             <TextBlock x:Name="txtStandings"  TextWrapping="Wrap" Margin="5"/>

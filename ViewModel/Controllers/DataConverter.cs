@@ -8,7 +8,7 @@ namespace FootballScoresApp.ViewModel.Controllers
 {
     static class DataConverter
     {
-        static Dictionary<string, int> LeagueDictionary { get; set; }
+        public static Dictionary<string, int> LeagueDictionary { get; private set; }
 
         public static void InitDictionary()
         {
