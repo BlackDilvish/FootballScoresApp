@@ -23,5 +23,22 @@ namespace FootballScoresApp.Model
         {
             return player_name;
         }
+
+        public string FullInfo()
+        {
+            return $"{player_name}\t{player_age}\t{player_country}\t{player_number}\t{player_type}\t" +
+                   $"{player_match_played}\t{player_goals}\t{player_yellow_cards}\t{player_red_cards}\n";
+        }
+
+        public Player Formated()
+        {
+            while (player_name.Length < 25)
+                player_name += " ";
+
+            while (player_country.Length < 15)
+                player_country += " ";
+
+            return this;
+        }
     }
 }

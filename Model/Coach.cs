@@ -16,5 +16,10 @@ namespace FootballScoresApp.Model
         {
             return coach_name;
         }
+
+        public string FullInfo()
+        {
+            return $"{coach_name},\t{coach_age}\t({coach_country})\n";
+        }
     }
 }
