@@ -47,7 +47,7 @@ namespace FootballScoresApp.View
 
         private void MatchBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show((sender as TextBlock).Text);
+            MessageBox.Show((sender as TextBlock).Text + $"Index: {spFixturesCanvas.Children.IndexOf(sender as TextBlock)}");
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
