@@ -31,18 +31,7 @@ namespace FootballScoresApp.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            tbxTemp.Text = string.Empty;
 
-            //foreach (var country in DataController.GetCountries())
-            //    tbxTemp.Text += country + "\n";
-
-            foreach (var league in DataController.GetLeagues())
-                tbxTemp.Text += league + "\n";
-
-            foreach (var ev in DataController.GetEvent("2019-12-20", "2019-12-29", 149, 242383))
-                tbxTemp.Text += ev + "\n";
-
-            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -53,6 +42,11 @@ namespace FootballScoresApp.View
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Switcher.Switch(new ClubInfo(), (148, 2611));
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new FixturesPage(), ("2019-04-01", "2019-04-03"));
         }
     }
 }

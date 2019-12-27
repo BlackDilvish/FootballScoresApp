@@ -17,6 +17,7 @@ namespace FootballScoresApp.ViewModel.Controllers
                 {"Premier League", 148 },
                 {"Championship", 149 },
                 {"English League One", 150 },
+                {"Ligue 2", 177 },
             };
         }
 

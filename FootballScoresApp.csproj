@@ -59,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\FixturesPage.xaml.cs">
+      <DependentUpon>FixturesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Coach.cs" />
     <Compile Include="Model\Country.cs" />
     <Compile Include="Model\MatchEventModels\CardInfo.cs" />
@@ -87,6 +90,10 @@
     <Compile Include="View\Standings.xaml.cs">
       <DependentUpon>Standings.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\FixturesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

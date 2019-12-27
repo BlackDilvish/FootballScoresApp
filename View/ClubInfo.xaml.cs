@@ -17,12 +17,10 @@ using System.Windows.Shapes;
 
 namespace FootballScoresApp.View
 {
-    /// <summary>
-    /// Logika interakcji dla klasy ClubInfo.xaml
-    /// </summary>
+
     public partial class ClubInfo : UserControl, ISwitchable
     {
-        private int CurrentClubId { get; set; } 
+        private int CurrentClubId { get; set; }
 
         public ClubInfo()
         {
@@ -37,7 +35,7 @@ namespace FootballScoresApp.View
 
         public void UtilizeState(object state)
         {
-            var clubInfo = (ValueTuple<int, int>) state;
+            var clubInfo = (ValueTuple<int, int>)state;
             var loadedTeam = DataController.GetTeam(clubInfo.Item1, clubInfo.Item2)[0];
 
             InfoWriter.SetClubInfo(loadedTeam, txtTeamName, txtTeamInfo, imgBadge);
@@ -45,7 +43,7 @@ namespace FootballScoresApp.View
 
         private void cbxLeagueBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(cbxClubBox.IsEnabled)
+            if (cbxClubBox.IsEnabled)
                 cbxClubBox.Items.Clear();
             else
                 cbxClubBox.IsEnabled = true;
@@ -65,7 +63,7 @@ namespace FootballScoresApp.View
             {
                 CurrentClubId = int.Parse(DataController.GetTeams(DataConverter.LeagueID(cbxLeagueBox.SelectedItem as string)).Where(t => t.team_name == (cbxClubBox.SelectedItem as string)).FirstOrDefault().team_key);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

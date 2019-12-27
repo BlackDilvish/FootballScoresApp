@@ -36,19 +36,14 @@ namespace FootballScoresApp.Model
         public string match_live { get; set; }
 
         public List<GoalScorer> goalscorer { get; set; }
-        public List<CardInfo> cards { get; set; } 
+        public List<CardInfo> cards { get; set; }
         public Substitutions substitutions { get; set; }
         public Lineup lineup { get; set; }
         public List<Statistic> statistics { get; set; }
 
         public override string ToString()
         {
-            string output = $"{match_date} : {match_hometeam_name} vs. {match_awayteam_name} \n{lineup}\nChanges: \n{substitutions}";
-
-            foreach (GoalScorer scorer in goalscorer)
-                output += $"{scorer}\n";
-
-            return output;
+            return $"{match_date} : {match_hometeam_name} vs. {match_awayteam_name}";
         }
 
     }
