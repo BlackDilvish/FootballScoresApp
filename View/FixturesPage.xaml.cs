@@ -17,9 +17,7 @@ using System.Windows.Shapes;
 
 namespace FootballScoresApp.View
 {
-    /// <summary>
-    /// Logika interakcji dla klasy FixturesPage.xaml
-    /// </summary>
+    
     public partial class FixturesPage : UserControl, ISwitchable
     {
         private int CurrentClubId { get; set; }

@@ -17,12 +17,9 @@ using FootballScoresApp.ViewModel.Controllers;
 
 namespace FootballScoresApp.View
 {
-    /// <summary>
-    /// Logika interakcji dla klasy Standings.xaml
-    /// </summary>
-    public partial class Standings : UserControl, ISwitchable
+    public partial class StandingsPage : UserControl, ISwitchable
     {
-        public Standings()
+        public StandingsPage()
         {
             InitializeComponent();
             InitLeaguesButtons();
