@@ -43,7 +43,10 @@ namespace FootballScoresApp.Model
 
         public override string ToString()
         {
-            return $"{match_date} : {match_hometeam_name} vs. {match_awayteam_name}";
+            if(match_status == "Finished")
+                return $"{match_date} | {match_time} | {match_hometeam_name} {match_hometeam_score}:{match_awayteam_score} {match_awayteam_name}";
+            else
+                return $"{match_date} | {match_time} | {match_hometeam_name} vs. {match_awayteam_name}";
         }
 
     }
