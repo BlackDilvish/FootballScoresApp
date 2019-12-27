@@ -36,7 +36,7 @@ namespace FootballScoresApp.View
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new Standings(), DataConverter.LeagueID("Championship"));
+            Switcher.Switch(new StandingsPage(), DataConverter.LeagueID("Championship"));
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
