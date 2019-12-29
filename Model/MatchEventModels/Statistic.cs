@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FootballScoresApp.Model.MatchEventModels
 {
-    class Statistic
+    public class Statistic
     {
         public string type { get; set; }
         public string home { get; set; }
@@ -15,6 +15,16 @@ namespace FootballScoresApp.Model.MatchEventModels
         public override string ToString()
         {
             return $"{type} : home:{home} - away{away}";
+        }
+
+        public string FormatedType()
+        {
+            string temp = type;
+
+            while (temp.Length < 42)
+                temp += " ";
+
+            return temp;
         }
     }
 }

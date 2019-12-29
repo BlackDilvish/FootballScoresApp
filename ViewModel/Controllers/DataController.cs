@@ -12,6 +12,7 @@ namespace FootballScoresApp.ViewModel.Controllers
     class DataController
     {
         static string baseUrl = @"https://apiv2.apifootball.com/";
+
         public static List<Country> GetCountries()
         {
             return new JavaScriptSerializer().Deserialize<List<Country>>(RestClient.MakeRequest(baseUrl + "?action=get_countries"));
@@ -55,6 +56,11 @@ namespace FootballScoresApp.ViewModel.Controllers
         public static List<MatchEvent> GetEvents(string from, string to, int leagueID, int teamID)
         {
             return new JavaScriptSerializer().Deserialize<List<MatchEvent>>(RestClient.MakeRequest(baseUrl + "?action=get_events&from=" + from + "&to=" + to + "&league_id=" + leagueID + "&team_id=" + teamID));
+        }
+
+        public static MatchEvent GetEvent(int matchID)
+        {
+            return new JavaScriptSerializer().Deserialize<List<MatchEvent>>(RestClient.MakeRequest(baseUrl + "?action=get_events&match_id=" + matchID)).FirstOrDefault();
         }
 
     }

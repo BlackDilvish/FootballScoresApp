@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FootballScoresApp.Model.MatchEventModels
 {
-    class CardInfo
+    public class CardInfo
     {
         public string time { get; set; }
         public string home_fault { get; set; }
@@ -16,7 +16,19 @@ namespace FootballScoresApp.Model.MatchEventModels
 
         public override string ToString()
         {
-            return $"{home_fault+away_fault} : {time} : {card}";
+            return $"{home_fault+away_fault}\t{time}'\t{card}";
+        }
+
+        public CardInfo Formated()
+        {
+            if (home_fault.Length > 0)
+                while (home_fault.Length < 20)
+                    home_fault += " ";
+            else
+                while (away_fault.Length < 20)
+                    away_fault += " ";
+
+            return this;
         }
     }
 }

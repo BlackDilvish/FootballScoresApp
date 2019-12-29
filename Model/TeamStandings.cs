@@ -45,7 +45,8 @@ namespace FootballScoresApp.Model
             FillName();
 
             return $"{overall_league_position}\t{team_name}\t{overall_league_payed}\t" +
-                   $"{overall_league_W}\t{overall_league_D}\t{overall_league_L}\t{overall_league_PTS}";
+                   $"{overall_league_W}\t{overall_league_D}\t{overall_league_L}\t" +
+                   $"{overall_league_GF}:{overall_league_GA}\t{overall_league_PTS}";
         }
 
         public override string ToString()

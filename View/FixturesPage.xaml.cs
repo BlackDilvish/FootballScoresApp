@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace FootballScoresApp.View
 {
@@ -27,12 +28,8 @@ namespace FootballScoresApp.View
         public FixturesPage()
         {
             InitializeComponent();
-
-            cbxClubBox.IsEnabled = false;
-
-            cbxLeagueBox.Items.Add("Wszystkie");
-            foreach (var league in DataController.GetLeagues())
-                cbxLeagueBox.Items.Add(league.league_name);
+            LoadLeagues();
+            Refresher.AddRefresher(10, RefreshResults);
         }
 
         public void UtilizeState(object state)
@@ -45,9 +42,22 @@ namespace FootballScoresApp.View
             InfoWriter.SetFixtures(txtDate, spFixturesCanvas, FromDate, ToDate);
         }
 
-        private void MatchBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        public static void MatchBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show((sender as TextBlock).Text + $"Index: {spFixturesCanvas.Children.IndexOf(sender as TextBlock)}");
+            var inline = (sender as TextBlock).Inlines.FirstInline;
+            var inlineText = new TextRange(inline.ContentStart, inline.ContentEnd);
+
+            int index = int.Parse(inlineText.Text.Split('#')[0]);
+            Switcher.Switch(new MatchDescriptionPage(),DataConverter.LastLoadedEvents[index].match_id);
+        }
+
+        private void LoadLeagues()
+        {
+            cbxClubBox.IsEnabled = false;
+
+            cbxLeagueBox.Items.Add("Wszystkie");
+            foreach (var league in DataController.GetLeagues())
+                cbxLeagueBox.Items.Add(league.league_name);
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -112,6 +122,12 @@ namespace FootballScoresApp.View
         private void dpDateTo_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             ToDate = dpDateTo.SelectedDate.Value.ToString("yyyy-MM-dd");
+        }
+
+        private void RefreshResults(object sender, EventArgs e)
+        {
+            if (FromDate.Equals(DateTime.Now.ToString("yyyy-MM-dd")) && ToDate.Equals(DateTime.Now.ToString("yyyy-MM-dd")))
+                InfoWriter.SetFixtures(txtDate, spFixturesCanvas, FromDate, ToDate);
         }
     }
 }

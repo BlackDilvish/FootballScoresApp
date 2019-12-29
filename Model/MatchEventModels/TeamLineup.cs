@@ -13,35 +13,40 @@ namespace FootballScoresApp.Model.MatchEventModels
         public List<LineupPlayer> coach { get; set; }
         public List<LineupPlayer> missing_players { get; set; }
 
-        //public TeamLineup()
-        //{
-        //    starting_lineups = new List<LineupPlayer>();
-        //    substitutes = new List<LineupPlayer>();
-        //    coach = new List<LineupPlayer>();
-        //    missing_players = new List<LineupPlayer>();
-        //}
-
         public override string ToString()
         {
-            string output = "Starting lineup: ";
+            string output = "Starting lineup: \n";
 
             foreach (var p in starting_lineups)
-                output += $"{p}, ";
+                output += p + " ";
 
-            output += "\nSubstitutes: ";
+            return output;
+        }
+
+        public string LineupInfo()
+        {
+            string output = "Starting lineup:\n\nName\t\t\tNumber\n";
+
+            foreach (var p in starting_lineups)
+                output += p.Formated().PlayerInfo();
+
+            output += "\nSubstitutes:\n\n";
 
             foreach (var p in substitutes)
-                output += $"{p}, ";
+                output += p.Formated().PlayerInfo();
 
-            output += "\nCoach: ";
+            output += "\nCoach:\t\t";
 
-            foreach (var p in coach)
-                output += $"{p}, ";
+            foreach (var c in coach)
+                output += $"{c.ToString()}\n";
 
-            output += "\nMissing Players: ";
+            if(missing_players.Count > 0)
+            {
+                output += "\nMissing Players:\n\n";
 
-            foreach (var p in missing_players)
-                output += $"{p}, ";
+                foreach (var p in missing_players)
+                    output += p.Formated() + "\n";
+            }
 
             return output;
         }

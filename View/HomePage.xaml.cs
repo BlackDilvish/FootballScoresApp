@@ -31,22 +31,23 @@ namespace FootballScoresApp.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            foreach (var match in DataController.GetEvents("2019-12-29", "2019-12-29").Where(m => m.match_live.Equals("1")))
+                tbxTemp.Text += match.match_hometeam_name;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new StandingsPage(), DataConverter.LeagueID("Championship"));
+            Switcher.Switch(new StandingsPage(), DataConverter.LeagueID("Premier League"));
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new ClubInfo(), (148, 2611));
+            Switcher.Switch(new ClubInfo(), (DataConverter.LeagueID("Premier League"), 2611));
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new FixturesPage(), ("2019-04-01", "2019-04-03"));
+            Switcher.Switch(new FixturesPage(), (DateTime.Now.ToString("yyyy-MM-dd"), (DateTime.Now.ToString("yyyy-MM-dd"))));
         }
     }
 }

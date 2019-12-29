@@ -7,7 +7,7 @@ using FootballScoresApp.Model.MatchEventModels;
 
 namespace FootballScoresApp.Model
 {
-    class MatchEvent
+    public class MatchEvent
     {
         public string match_id { get; set; }
         public string country_id { get; set; }
@@ -43,10 +43,12 @@ namespace FootballScoresApp.Model
 
         public override string ToString()
         {
-            if(match_status == "Finished")
+            if(match_live.Equals("1"))
+                return $"{match_date} | {match_hometeam_name} {match_hometeam_score}:{match_awayteam_score} {match_awayteam_name} | {match_status}\' |";
+            else if (match_status == "Finished")
                 return $"{match_date} | {match_time} | {match_hometeam_name} {match_hometeam_score}:{match_awayteam_score} {match_awayteam_name}";
             else
-                return $"{match_date} | {match_time} | {match_hometeam_name} vs. {match_awayteam_name}";
+                return $"{match_date} | {match_time} | {match_hometeam_name} vs. {match_awayteam_name}"; 
         }
 
     }

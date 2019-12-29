@@ -27,26 +27,13 @@ namespace FootballScoresApp.View
 
         public void UtilizeState(object state)
         {
-            SetTable((int) state);
+            InfoWriter.SetStandings(txtStandings, (int)state);
         }
 
         void InitLeaguesButtons()
         {
             foreach (var league in DataConverter.LeagueDictionary)
-            {
-                var button = new Button { Content = league.Key };
-                button.Click += new RoutedEventHandler(btnChangeLeague_Click);
-
-                splLeaguesButtons.Children.Add(button);
-            }
-        }
-
-        void SetTable(int leagueID)
-        {
-            txtStandings.Text = InfoWriter.TeamStandingsHeader() + "\n\n";
-
-            foreach (var team in DataController.GetStandings(leagueID))
-                txtStandings.Text += $"{team.ShortStandings()}\n";
+                cbLeagueBox.Items.Add(league.Key);
         }
 
         private void btnReturn_Click(object sender, RoutedEventArgs e)
@@ -54,9 +41,9 @@ namespace FootballScoresApp.View
             Switcher.Switch(new HomePage());
         }
 
-        private void btnChangeLeague_Click(object sender, RoutedEventArgs e)
+        private void cbLeagueBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SetTable(DataConverter.LeagueID((sender as Button).Content.ToString()));
+            InfoWriter.SetStandings(txtStandings, (DataConverter.LeagueID(cbLeagueBox.SelectedItem.ToString())));
         }
     }
 }

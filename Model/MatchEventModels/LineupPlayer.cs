@@ -16,5 +16,18 @@ namespace FootballScoresApp.Model.MatchEventModels
         {
             return lineup_player;
         }
+
+        public LineupPlayer Formated()
+        {
+            while (lineup_player.Length < 30)
+                lineup_player += " ";
+
+            return this;
+        }
+
+        public string PlayerInfo()
+        {
+            return $"{lineup_player}\t{lineup_number}\n";
+        }
     }
 }

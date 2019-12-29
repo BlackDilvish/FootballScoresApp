@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FootballScoresApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace FootballScoresApp.ViewModel.Controllers
     static class DataConverter
     {
         public static Dictionary<string, int> LeagueDictionary { get; private set; }
+        public static List<MatchEvent> LastLoadedEvents { get; set; }
 
         public static void InitDictionary()
         {
@@ -17,6 +19,7 @@ namespace FootballScoresApp.ViewModel.Controllers
                 {"Premier League", 148 },
                 {"Championship", 149 },
                 {"English League One", 150 },
+                {"Ligue 1", 176 },
                 {"Ligue 2", 177 },
             };
         }

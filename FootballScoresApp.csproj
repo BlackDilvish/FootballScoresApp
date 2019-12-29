@@ -59,6 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\Refresher.cs" />
     <Compile Include="View\FixturesPage.xaml.cs">
       <DependentUpon>FixturesPage.xaml</DependentUpon>
     </Compile>
@@ -87,6 +88,9 @@
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MatchDescriptionPage.xaml.cs">
+      <DependentUpon>MatchDescriptionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Standings.xaml.cs">
       <DependentUpon>Standings.xaml</DependentUpon>
     </Compile>
@@ -111,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MatchDescriptionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

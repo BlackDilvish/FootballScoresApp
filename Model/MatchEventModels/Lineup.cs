@@ -6,16 +6,10 @@ using System.Threading.Tasks;
 
 namespace FootballScoresApp.Model.MatchEventModels
 {
-    class Lineup
+    public class Lineup
     {
         public TeamLineup home { get; set; }
         public TeamLineup away { get; set; }
-
-        //public Lineup()
-        //{
-        //    home = new TeamLineup();
-        //    away = new TeamLineup();
-        //}
 
         public override string ToString()
         {

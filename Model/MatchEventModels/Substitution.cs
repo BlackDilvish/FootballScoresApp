@@ -13,7 +13,7 @@ namespace FootballScoresApp.Model.MatchEventModels
 
         public override string ToString()
         {
-            return $"{time} : {substitution}";
+            return $"{time}\'\t-\t{substitution}";
         }
     }
 }
