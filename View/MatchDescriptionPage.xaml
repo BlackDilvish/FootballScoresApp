@@ -44,7 +44,8 @@
             <Button x:Name="btnSubs" Content="Substitutions" Click="btnSubs_Click" Margin="0,5"/>
             <Button x:Name="btnCards" Content="Cards" Click="btnCards_Click" Margin="0,5"/>
             <Button x:Name="btnStats" Content="Statistics" Click="btnStats_Click" Margin="0,5"/>
-            <Button x:Name="btnAllInfo" Content="All" Click="btnAllInfo_Click"  Margin="0,5"/>
+            <Button x:Name="btnAllInfo" Content="All" Click="btnAllInfo_Click" Margin="0,5"/>
+            <Button x:Name="btnH2H" Content="H2H" Click="btnH2H_Click" Margin="0,5"/>
             <Button x:Name="btnReturn" Content="Return" Click="btnReturn_Click" Margin="0,20"/>
         </StackPanel>
 

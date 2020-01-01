@@ -102,7 +102,7 @@ namespace FootballScoresApp.ViewModel.Controllers
             {
                 var matchInfo = new TextBlock();
 
-                if (match.match_live == "1")
+                if (match.IsLive())
                 {
                     matchInfo.Inlines.Add(new Run($"{i++}#| ") { Foreground = Brushes.Black });
                     matchInfo.Inlines.Add(new Run($"Live!") { Foreground = Brushes.Red });
@@ -130,7 +130,7 @@ namespace FootballScoresApp.ViewModel.Controllers
             t1Name.Text = match.match_hometeam_name;
             t2Name.Text = match.match_awayteam_name;
 
-            var color = match.match_live.Equals("1") ? Brushes.Red : Brushes.Gray;
+            var color = match.IsLive() ? Brushes.Red : Brushes.Gray;
             txtResult.Inlines.Clear();
             txtResult.Inlines.Add(new Run($"{match.match_hometeam_score}:{match.match_awayteam_score}") { Foreground = color });
         }
@@ -147,7 +147,7 @@ namespace FootballScoresApp.ViewModel.Controllers
         public static void GetExtraInfo(TextBlock extraDesc, MatchEvent match)
         {
             extraDesc.Inlines.Clear();
-            var color = match.match_live.Equals("1") ? Brushes.Red : Brushes.Black;
+            var color = match.IsLive() ? Brushes.Red : Brushes.Black;
 
             extraDesc.Inlines.Add(new Run("Start: " + match.match_time + "\n"));
             extraDesc.Inlines.Add(new Run("Time: " + match.match_status + "\'\n") { Foreground = color });

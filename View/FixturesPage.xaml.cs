@@ -29,6 +29,7 @@ namespace FootballScoresApp.View
         {
             InitializeComponent();
             LoadLeagues();
+
             Refresher.AddRefresher(10, RefreshResults);
         }
 
@@ -48,7 +49,16 @@ namespace FootballScoresApp.View
             var inlineText = new TextRange(inline.ContentStart, inline.ContentEnd);
 
             int index = int.Parse(inlineText.Text.Split('#')[0]);
-            Switcher.Switch(new MatchDescriptionPage(),DataConverter.LastLoadedEvents[index].match_id);
+            try
+            {
+                Refresher.StopRefresher();
+                Switcher.Switch(new MatchDescriptionPage(), DataConverter.LastLoadedEvents[index].match_id);        
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            };
+            
         }
 
         private void LoadLeagues()
@@ -74,6 +84,7 @@ namespace FootballScoresApp.View
 
         private void btnReturn_Click(object sender, RoutedEventArgs e)
         {
+            Refresher.StopRefresher();
             Switcher.Switch(new HomePage());
         }
 

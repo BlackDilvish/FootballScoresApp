@@ -31,8 +31,7 @@ namespace FootballScoresApp.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var match in DataController.GetEvents("2019-12-29", "2019-12-29").Where(m => m.match_live.Equals("1")))
-                tbxTemp.Text += match.match_hometeam_name;
+            tbxTemp.Text = DataController.GetH2H("Chelsea", "Arsenal").firstTeam_lastResults.Count.ToString();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

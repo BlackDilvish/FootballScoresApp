@@ -9,6 +9,8 @@ namespace FootballScoresApp.ViewModel
 {
     public static class Refresher
     {
+        private static DispatcherTimer TimerHandle { get; set; }
+
         public static void AddRefresher(double cooldown, EventHandler handler)
         {
             DispatcherTimer timer = new DispatcherTimer
@@ -18,6 +20,17 @@ namespace FootballScoresApp.ViewModel
 
             timer.Tick += handler;
             timer.Start();
+
+            TimerHandle = timer;
+        }
+
+        public static void StopRefresher()
+        {
+            if (TimerHandle != null)
+            {
+                TimerHandle.Stop();
+                TimerHandle = null;
+            }
         }
     }
 }

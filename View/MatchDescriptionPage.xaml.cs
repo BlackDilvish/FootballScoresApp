@@ -51,6 +51,7 @@ namespace FootballScoresApp.View
 
         private void btnReturn_Click(object sender, RoutedEventArgs e)
         {
+            Refresher.StopRefresher();
             Switcher.Switch(new FixturesPage(), (DateTime.Now.ToString("yyyy-MM-dd"), (DateTime.Now.ToString("yyyy-MM-dd"))));
         }
 
@@ -94,6 +95,14 @@ namespace FootballScoresApp.View
         {
             ClearDescriptions();
             InfoWriter.GetFullFixtureDescription(txtTeam1Description, txtTeam2Description, DataController.GetEvent(MatchID));
+        }
+
+        private void btnH2H_Click(object sender, RoutedEventArgs e)
+        {
+            var match = DataController.GetEvent(MatchID);
+
+            Refresher.StopRefresher();
+            Switcher.Switch(new h2hPanel(), (match.match_hometeam_name, match.match_awayteam_name));
         }
     }
 }

@@ -63,5 +63,9 @@ namespace FootballScoresApp.ViewModel.Controllers
             return new JavaScriptSerializer().Deserialize<List<MatchEvent>>(RestClient.MakeRequest(baseUrl + "?action=get_events&match_id=" + matchID)).FirstOrDefault();
         }
 
+        public static H2H GetH2H(string firstTeam, string secondTeam)
+        {
+            return new JavaScriptSerializer().Deserialize<H2H>(RestClient.MakeRequest(baseUrl + "?action=get_H2H&firstTeam=" + firstTeam + "&secondTeam=" + secondTeam));
+        }
     }
 }

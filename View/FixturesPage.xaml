@@ -44,7 +44,6 @@
 
             <Button x:Name="btnSearch" Content="Search" Width="100" Margin="0,20,0,0" Click="btnSearch_Click" />
             <Button x:Name="btnReturn" Content="Return" Width="100" Margin="0,30,0,0" Click="btnReturn_Click"/>
-
         </StackPanel>
 
         <ScrollViewer Grid.Column="1" Grid.Row="1">

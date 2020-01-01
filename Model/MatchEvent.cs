@@ -51,5 +51,10 @@ namespace FootballScoresApp.Model
                 return $"{match_date} | {match_time} | {match_hometeam_name} vs. {match_awayteam_name}"; 
         }
 
+        public bool IsLive()
+        {
+            return match_live.Equals("1") && !match_status.Equals("Finished");
+        }
+
     }
 }
