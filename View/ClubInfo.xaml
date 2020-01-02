@@ -12,24 +12,27 @@
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="9*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Image x:Name="imgBadge" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="150" Margin="40,30,0,0" />
+        <Viewbox Grid.Row="1" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="150" Margin="40,30,0,0" >
+            <Image x:Name="imgBadge"/>
+        </Viewbox>
 
-        <Viewbox Grid.Column="1" HorizontalAlignment="Left" Height="306" Margin="10.2,70,0,0" VerticalAlignment="Top" Width="550">
+        <Viewbox Grid.Column="1" Grid.Row="1" Margin="10,10">
             <TextBlock x:Name="txtTeamInfo" />
         </Viewbox>
 
-        <Viewbox Grid.Column="1" HorizontalAlignment="Left" Height="55" Margin="10,10,0,0" VerticalAlignment="Top" Width="550">
+        <Viewbox Grid.Column="1" Margin="2,2">
             <TextBlock x:Name="txtTeamName" TextAlignment="Center" />
         </Viewbox>
 
-        <Button x:Name="btnReturn" Content="Return" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="100" Click="btnReturn_Click"/>
-        <ComboBox x:Name="cbxLeagueBox" Grid.Column="1" HorizontalAlignment="Left"   Grid.Row="1" VerticalAlignment="Center" Width="120" Margin="20,0,0,0" SelectionChanged="cbxLeagueBox_SelectionChanged"/>
-        <ComboBox x:Name="cbxClubBox" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="120" SelectionChanged="cbxClubBox_SelectionChanged"/>
-        <Button x:Name="btnChangeClub"   Grid.Column="1" HorizontalAlignment="Right"  Grid.Row="1" VerticalAlignment="Center" Width="120" Height="22" Content="Go" Margin="0,0,20,0" Click="btnChangeClub_Click"/>
+        <Button x:Name="btnReturn" Content="Return" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="100" Click="btnReturn_Click"/>
+        <ComboBox x:Name="cbxLeagueBox" Grid.Column="1" HorizontalAlignment="Left"   Grid.Row="2" VerticalAlignment="Center" Width="120" Margin="20,0,0,0" SelectionChanged="cbxLeagueBox_SelectionChanged"/>
+        <ComboBox x:Name="cbxClubBox" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="120" SelectionChanged="cbxClubBox_SelectionChanged"/>
+        <Button x:Name="btnChangeClub"   Grid.Column="1" HorizontalAlignment="Right"  Grid.Row="2" VerticalAlignment="Center" Width="120" Height="22" Content="Go" Margin="0,0,20,0" Click="btnChangeClub_Click"/>
 
 
 

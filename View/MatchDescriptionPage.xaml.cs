@@ -104,5 +104,11 @@ namespace FootballScoresApp.View
             Refresher.StopRefresher();
             Switcher.Switch(new h2hPanel(), (match.match_hometeam_name, match.match_awayteam_name));
         }
+
+        private void btnStandings_Click(object sender, RoutedEventArgs e)
+        {
+            Refresher.StopRefresher();
+            Switcher.Switch(new StandingsPage(), int.Parse(DataController.GetEvent(MatchID).league_id));
+        }
     }
 }

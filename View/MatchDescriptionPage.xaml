@@ -37,17 +37,23 @@
             <TextBlock x:Name="txtTeam2Description" TextWrapping="Wrap"/>
         </ScrollViewer>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" Margin="10,0">
-            <TextBlock x:Name="txtExtraInfo" TextWrapping="Wrap" TextAlignment="Center"/>
-            <Button x:Name="btnLineup" Content="Lineups" Click="btnShowLineup_Click" Margin="0,5"/>
-            <Button x:Name="btnScorer" Content="Scorers" Click="btnScorer_Click" Margin="0,5"/>
-            <Button x:Name="btnSubs" Content="Substitutions" Click="btnSubs_Click" Margin="0,5"/>
-            <Button x:Name="btnCards" Content="Cards" Click="btnCards_Click" Margin="0,5"/>
-            <Button x:Name="btnStats" Content="Statistics" Click="btnStats_Click" Margin="0,5"/>
-            <Button x:Name="btnAllInfo" Content="All" Click="btnAllInfo_Click" Margin="0,5"/>
-            <Button x:Name="btnH2H" Content="H2H" Click="btnH2H_Click" Margin="0,5"/>
-            <Button x:Name="btnReturn" Content="Return" Click="btnReturn_Click" Margin="0,20"/>
-        </StackPanel>
+        <Viewbox Grid.Column="1" Grid.Row="1" Margin="5,0">
+            <StackPanel>
+                <TextBlock x:Name="txtExtraInfo" TextWrapping="Wrap" TextAlignment="Center"/>
+                <Button x:Name="btnLineup" Content="Lineups" Click="btnShowLineup_Click" Margin="0,5"/>
+                <Button x:Name="btnScorer" Content="Scorers" Click="btnScorer_Click" Margin="0,5"/>
+                <Button x:Name="btnSubs" Content="Substitutions" Click="btnSubs_Click" Margin="0,5"/>
+                <Button x:Name="btnCards" Content="Cards" Click="btnCards_Click" Margin="0,5"/>
+                <Button x:Name="btnStats" Content="Statistics" Click="btnStats_Click" Margin="0,5"/>
+                <Button x:Name="btnAllInfo" Content="All" Click="btnAllInfo_Click" Margin="0,5"/>
+
+                <Button x:Name="btnH2H" Content="H2H" Click="btnH2H_Click" Margin="0,25,0,5"/>
+                <Button x:Name="btnStandings" Content="Standings" Click="btnStandings_Click" Margin="0,5"/>
+
+                <Button x:Name="btnReturn" Content="Return" Click="btnReturn_Click" Margin="0,20"/>
+            </StackPanel>
+        </Viewbox>
+        
 
     </Grid>
 </UserControl>

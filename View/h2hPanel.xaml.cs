@@ -17,11 +17,12 @@ using System.Windows.Shapes;
 
 namespace FootballScoresApp.View
 {
-    /// <summary>
-    /// Logika interakcji dla klasy h2hPanel.xaml
-    /// </summary>
     public partial class h2hPanel : UserControl, ISwitchable
     {
+        public string FirstTeam { get; set; }
+        public string SecondTeam { get; set; }
+
+
         public h2hPanel()
         {
             InitializeComponent();
@@ -30,17 +31,42 @@ namespace FootballScoresApp.View
         public void UtilizeState(object state)
         {
             var clubs = (ValueTuple<string, string>) state;
-            var h2hInfo = DataController.GetH2H(clubs.Item1, clubs.Item2);
 
+            FirstTeam = clubs.Item1;
+            SecondTeam = clubs.Item2;
 
-            foreach (var match in h2hInfo.firstTeam_lastResults)
-                spT1LastMatches.Children.Add(new TextBlock { Text = $"{match.match_hometeam_name + " vs " + match.match_awayteam_name}\n" });
+            SetHeaders();
+            InfoWriter.SetH2H(spT1LastMatches, spT1vsT2LastMatches, spT2LastMatches, DataController.GetH2H(FirstTeam, SecondTeam));
+        }
 
-            foreach (var match in h2hInfo.firstTeam_VS_secondTeam)
-                spT1vsT2LastMatches.Children.Add(new TextBlock { Text = $"{match.match_hometeam_name + " vs " + match.match_awayteam_name}\n" });
+        public static void MatchBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var inline = (sender as TextBlock).Inlines.FirstInline;
+            var inlineText = new TextRange(inline.ContentStart, inline.ContentEnd);
 
-            foreach (var match in h2hInfo.secondTeam_lastResults)
-                spT2LastMatches.Children.Add(new TextBlock { Text = $"{match.match_hometeam_name + " vs " + match.match_awayteam_name}\n" });
+            int index = int.Parse(inlineText.Text.Split('#')[0]);
+
+            try
+            {
+                Switcher.Switch(new MatchDescriptionPage(), DataConverter.LastLoadedMatches[index].match_id);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            };
+
+        }
+
+        private void SetHeaders()
+        {
+            txtT1Name.Text = FirstTeam;
+            txtT2Name.Text = SecondTeam;
+            txtT1vsT2.Text = FirstTeam + " vs. " + SecondTeam;
+        }
+
+        private void btnReturn_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new FixturesPage(), (DateTime.Now.ToString("yyyy-MM-dd"), (DateTime.Now.ToString("yyyy-MM-dd"))));
         }
     }
 }

@@ -49,6 +49,7 @@ namespace FootballScoresApp.View
             var inlineText = new TextRange(inline.ContentStart, inline.ContentEnd);
 
             int index = int.Parse(inlineText.Text.Split('#')[0]);
+
             try
             {
                 Refresher.StopRefresher();

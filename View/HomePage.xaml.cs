@@ -29,24 +29,19 @@ namespace FootballScoresApp.View
             throw new NotImplementedException();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnFixtures_Click(object sender, RoutedEventArgs e)
         {
-            tbxTemp.Text = DataController.GetH2H("Chelsea", "Arsenal").firstTeam_lastResults.Count.ToString();
+            Switcher.Switch(new FixturesPage(), (DateTime.Now.ToString("yyyy-MM-dd"), (DateTime.Now.ToString("yyyy-MM-dd"))));
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btnStandings_Click(object sender, RoutedEventArgs e)
         {
             Switcher.Switch(new StandingsPage(), DataConverter.LeagueID("Premier League"));
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void btnClubInfo_Click(object sender, RoutedEventArgs e)
         {
             Switcher.Switch(new ClubInfo(), (DataConverter.LeagueID("Premier League"), 2611));
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            Switcher.Switch(new FixturesPage(), (DateTime.Now.ToString("yyyy-MM-dd"), (DateTime.Now.ToString("yyyy-MM-dd"))));
         }
     }
 }

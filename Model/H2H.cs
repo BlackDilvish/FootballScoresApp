@@ -8,8 +8,8 @@ namespace FootballScoresApp.Model
 {
     public class H2H
     {
-       public List<H2Hmatch> firstTeam_VS_secondTeam;
-       public List<H2Hmatch> firstTeam_lastResults;
-       public List<H2Hmatch> secondTeam_lastResults;
+       public List<Match> firstTeam_VS_secondTeam;
+       public List<Match> firstTeam_lastResults;
+       public List<Match> secondTeam_lastResults;
     }
 }

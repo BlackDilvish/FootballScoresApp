@@ -326,5 +326,45 @@ namespace FootballScoresApp.ViewModel.Controllers
 
         #endregion
 
+        #region H2H
+
+        public static void SetH2H(StackPanel t1Matches, StackPanel t1VSt2Matches, StackPanel t2Matches, H2H h2h)
+        {
+            DataConverter.LastLoadedMatches = new List<Match>();
+
+            FillMatchesPanel(t1Matches, h2h.firstTeam_lastResults);
+            FillMatchesPanel(t1VSt2Matches, h2h.firstTeam_VS_secondTeam);
+            FillMatchesPanel(t2Matches, h2h.secondTeam_lastResults);
+        }
+
+        private static void FillMatchesPanel(StackPanel panel, List<Match> matches)
+        {
+            panel.Children.Clear();
+            int i = 0;
+
+            foreach (var match in matches)
+            {
+                var matchInfo = new TextBlock();
+
+                if (match.IsLive())
+                {
+                    matchInfo.Inlines.Add(new Run($"{DataConverter.LastLoadedMatches.Count + i++}#| ") { Foreground = Brushes.Black });
+                    matchInfo.Inlines.Add(new Run($"Live!") { Foreground = Brushes.Red });
+                    matchInfo.Inlines.Add(new Run($" | {match.ToString()}") { Foreground = Brushes.Black });
+                    matchInfo.PreviewMouseDown += h2hPanel.MatchBlock_PreviewMouseDown;
+                }
+                else
+                {
+                    matchInfo.Inlines.Add(new Run($"{DataConverter.LastLoadedMatches.Count + i++}# {match.ToString()}") { Foreground = Brushes.Black });
+                    matchInfo.PreviewMouseDown += h2hPanel.MatchBlock_PreviewMouseDown;
+                }
+
+                panel.Children.Add(matchInfo);
+            }
+
+            DataConverter.LastLoadedMatches.AddRange(matches);
+        }
+
+        #endregion
     }
 }

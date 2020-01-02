@@ -20,19 +20,19 @@
         </Grid.RowDefinitions>
 
         <Viewbox>
-            <TextBlock Text="t1"/>
+            <TextBlock x:Name="txtT1Name"/>
         </Viewbox>
 
         <Viewbox Grid.Column="1">
-            <TextBlock Text="result"/>
+            <TextBlock x:Name="txtT1vsT2"/>
         </Viewbox>
 
         <Viewbox Grid.Column="2">
-            <TextBlock Text="t2"/>
+            <TextBlock x:Name="txtT2Name"/>
         </Viewbox>
 
         <Label Grid.Row="1" Content="Last matches:" HorizontalContentAlignment="Center"/>
-        <Label Grid.Row="1" Grid.Column="1" Content="Last common matches" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="1" Content="Last matches:" HorizontalContentAlignment="Center"/>
         <Label Grid.Row="1" Grid.Column="2" Content="Last matches:" HorizontalContentAlignment="Center"/>
 
         <ScrollViewer Grid.Row="2">
@@ -47,7 +47,7 @@
             <StackPanel x:Name="spT2LastMatches"/>
         </ScrollViewer>
 
-        <Button x:Name="btnReturn" Content="Return" Grid.Column="2" Grid.Row="3" Width="100"/>
+        <Button x:Name="btnReturn" Content="Return" Grid.Column="2" Grid.Row="3" Width="100" Click="btnReturn_Click"/>
 
     </Grid>
 </UserControl>

@@ -63,7 +63,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\H2H.cs" />
-    <Compile Include="Model\H2Hmatch.cs" />
+    <Compile Include="Model\Match.cs" />
     <Compile Include="ViewModel\Refresher.cs" />
     <Compile Include="View\FixturesPage.xaml.cs">
       <DependentUpon>FixturesPage.xaml</DependentUpon>

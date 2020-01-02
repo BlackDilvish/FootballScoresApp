@@ -11,6 +11,7 @@ namespace FootballScoresApp.ViewModel.Controllers
     {
         public static Dictionary<string, int> LeagueDictionary { get; private set; }
         public static List<MatchEvent> LastLoadedEvents { get; set; }
+        public static List<Match> LastLoadedMatches { get; set; }
 
         public static void InitDictionary()
         {
