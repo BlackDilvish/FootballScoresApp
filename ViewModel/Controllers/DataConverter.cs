@@ -15,14 +15,33 @@ namespace FootballScoresApp.ViewModel.Controllers
 
         public static void InitDictionary()
         {
-            LeagueDictionary = new Dictionary<string, int>
+            var leagues = DataController.GetLeagues().Select(l => new { l.league_name, l.league_id }).ToList();
+
+            if(leagues.Count < 5)
             {
-                {"Premier League", 148 },
-                {"Championship", 149 },
-                {"English League One", 150 },
-                {"Ligue 1", 176 },
-                {"Ligue 2", 177 },
-            };
+                LeagueDictionary = new Dictionary<string, int>
+                {
+                    {"Premier League", 148 },
+                    {"Championship", 149 },
+                    {"English League One", 150 },
+                    {"Ligue 1", 176 },
+                    {"Ligue 2", 177 },
+                };
+            }
+            else
+            {
+                LeagueDictionary = new Dictionary<string, int>();
+
+                foreach (var league in leagues)
+                {
+                    if (LeagueDictionary.ContainsKey(league.league_name))                       
+                        LeagueDictionary.Add(league.league_name + $" ({LeagueDictionary.Where(d => d.Key.Contains(league.league_name)).ToList().Count})", int.Parse(league.league_id));
+                    else
+                        LeagueDictionary.Add(league.league_name, int.Parse(league.league_id));
+                }
+            }
+
+            
         }
 
         public static int LeagueID(string name)

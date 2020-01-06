@@ -41,7 +41,7 @@ namespace FootballScoresApp.View
 
         private void btnClubInfo_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new ClubInfo(), (DataConverter.LeagueID("Premier League"), 2611));
+            Switcher.Switch(new ClubInfo());
         }
     }
 }
