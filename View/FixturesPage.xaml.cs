@@ -67,8 +67,8 @@ namespace FootballScoresApp.View
             cbxClubBox.IsEnabled = false;
 
             cbxLeagueBox.Items.Add("Wszystkie");
-            foreach (var league in DataController.GetLeagues())
-                cbxLeagueBox.Items.Add(league.league_name);
+            foreach (var league in DataConverter.LeagueDictionary.Keys)
+                cbxLeagueBox.Items.Add(league);
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)

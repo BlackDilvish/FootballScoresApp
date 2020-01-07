@@ -25,7 +25,7 @@ namespace FootballScoresApp.ViewModel.Controllers
 
         public static void SetStandings(TextBlock txtStandings, int leagueID)
         {
-            txtStandings.Text = InfoWriter.TeamStandingsHeader() + "\n\n";
+            txtStandings.Text = TeamStandingsHeader() + "\n\n";
 
             foreach (var team in DataController.GetStandings(leagueID))
                 txtStandings.Text += $"{team.ShortStandings()}\n";

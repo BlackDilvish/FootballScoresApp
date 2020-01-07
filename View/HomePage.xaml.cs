@@ -36,7 +36,7 @@ namespace FootballScoresApp.View
 
         private void btnStandings_Click(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new StandingsPage(), DataConverter.LeagueID("Premier League"));
+            Switcher.Switch(new StandingsPage(), DataConverter.LeagueID("Premier League (England)"));
         }
 
         private void btnClubInfo_Click(object sender, RoutedEventArgs e)

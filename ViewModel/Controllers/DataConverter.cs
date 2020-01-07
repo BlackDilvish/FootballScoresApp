@@ -15,7 +15,7 @@ namespace FootballScoresApp.ViewModel.Controllers
 
         public static void InitDictionary()
         {
-            var leagues = DataController.GetLeagues().Select(l => new { l.league_name, l.league_id }).ToList();
+            var leagues = DataController.GetLeagues().Select(l => new { l.league_name, l.league_id, l.country_name }).ToList();
 
             if(leagues.Count < 5)
             {
@@ -33,12 +33,8 @@ namespace FootballScoresApp.ViewModel.Controllers
                 LeagueDictionary = new Dictionary<string, int>();
 
                 foreach (var league in leagues)
-                {
-                    if (LeagueDictionary.ContainsKey(league.league_name))                       
-                        LeagueDictionary.Add(league.league_name + $" ({LeagueDictionary.Where(d => d.Key.Contains(league.league_name)).ToList().Count})", int.Parse(league.league_id));
-                    else
-                        LeagueDictionary.Add(league.league_name, int.Parse(league.league_id));
-                }
+                    LeagueDictionary.Add($"{league.league_name} ({league.country_name})", int.Parse(league.league_id));
+                
             }
 
             
