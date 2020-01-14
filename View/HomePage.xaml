@@ -6,6 +6,57 @@
              xmlns:local="clr-namespace:FootballScoresApp.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="ColouredBtn" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Height" Value="150"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                            BorderThickness="1"
+                            Padding="4,2" 
+                            BorderBrush="DarkGray" 
+                            CornerRadius="3" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Duration="0:0:0.2" To="160" Storyboard.TargetProperty="Height" />
+                                <ColorAnimation Duration="0:0:0.2" To="GreenYellow" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Duration="0:0:0.2" To="150" Storyboard.TargetProperty="Height" />
+                                <ColorAnimation Duration="0:0:0.2" To="White"  Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    
     <Grid Background="WhiteSmoke">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -14,15 +65,15 @@
         </Grid.ColumnDefinitions>
 
         <Viewbox Margin="5,0">
-            <Button x:Name="btnFixtures" Content="Fixtures" HorizontalAlignment="Center" VerticalAlignment="center" Width="200" Height="150" FontSize="36" Click="btnFixtures_Click"/>
+            <Button x:Name="btnFixtures" Content="Fixtures" Click="btnFixtures_Click" Style="{StaticResource ColouredBtn}"/>
         </Viewbox>
 
         <Viewbox Grid.Column="1" Margin="5,0">
-            <Button x:Name="btnStandings" Content="Standings" HorizontalAlignment="Center" VerticalAlignment="center" Width="200" Height="150" FontSize="36" Click="btnStandings_Click"/>
+            <Button x:Name="btnStandings" Content="Standings" Click="btnStandings_Click" Style="{StaticResource ColouredBtn}"/>
         </Viewbox>
 
         <Viewbox Grid.Column="2" Margin="5,0">
-            <Button x:Name="btnClubInfo" Content="Clubs info" HorizontalAlignment="Center" VerticalAlignment="center" Width="200" Height="150" FontSize="36" Click="btnClubInfo_Click"/>
+            <Button x:Name="btnClubInfo" Content="Clubs info" Click="btnClubInfo_Click" Style="{StaticResource ColouredBtn}"/>
         </Viewbox>
         
     </Grid>
