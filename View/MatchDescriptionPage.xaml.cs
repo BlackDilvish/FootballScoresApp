@@ -108,7 +108,15 @@ namespace FootballScoresApp.View
         private void btnStandings_Click(object sender, RoutedEventArgs e)
         {
             Refresher.StopRefresher();
-            Switcher.Switch(new StandingsPage(), int.Parse(DataController.GetEvent(MatchID).league_id));
+
+            try
+            {
+                Switcher.Switch(new StandingsPage(), int.Parse(DataController.GetEvent(MatchID).league_id));
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

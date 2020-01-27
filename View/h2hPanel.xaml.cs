@@ -46,14 +46,19 @@ namespace FootballScoresApp.View
 
             int index = int.Parse(inlineText.Text.Split('#')[0]);
 
-            try
+            if(DataController.GetEvent(int.Parse(DataConverter.LastLoadedMatches[index].match_id)) != null)
             {
-                Switcher.Switch(new MatchDescriptionPage(), DataConverter.LastLoadedMatches[index].match_id);
+                try
+                {
+                    Switcher.Switch(new MatchDescriptionPage(), DataConverter.LastLoadedMatches[index].match_id);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                };
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            };
+            else
+                MessageBox.Show("Brak danych o meczu w bazie");
 
         }
 
